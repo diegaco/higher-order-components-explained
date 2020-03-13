@@ -2,24 +2,20 @@ import React from 'react';
 
 const withData = WrappedComponent => {
   class WithData extends React.Component {
-    constructor(props) {
-      super(props);
-
-      this.state = {
-        data: []
-      };
-    }
+    state = {
+      data: [],
+    };
 
     componentDidMount() {
-      setTimeout(() => {
-        fetch(this.props.dataSource)
-          .then(response => response.json())
-          .then(data => this.setState({ data: data.slice(0, 3) }));
+      setTimeout(async () => {
+        const res = await fetch(this.props.dataSource);
+        const data = await res.json();
+        this.setState({data: data.slice(0, 3)});
       }, 1500);
     }
 
     render() {
-      const { dataSource, ...otherProps } = this.props;
+      const {dataSource, ...otherProps} = this.props;
 
       return this.state.data.length < 1 ? (
         <h1>LOADING</h1>

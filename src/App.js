@@ -7,12 +7,12 @@ import './App.scss';
 
 function App() {
   return (
-    <div className='App'>
-      <UserList dataSource='https://jsonplaceholder.typicode.com/users' />
+    <div className="App">
+      <UserList dataSource="https://jsonplaceholder.typicode.com/users" />
       <UserProfile
-        name='Yihua'
-        email='yihuazhang@gmail.com'
-        dataSource='https://jsonplaceholder.typicode.com/posts'
+        name="Yihua"
+        email="yihuazhang@gmail.com"
+        dataSource="https://jsonplaceholder.typicode.com/posts"
       />
     </div>
   );
